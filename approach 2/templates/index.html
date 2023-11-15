@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Breast Cancer Classifier</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div class="text-center container border border-info p-5">
+      <h1 class="text-center text-primary">
+        Classify Breast Cancer using our Best CNN
+      </h1>
+      <form id="img-form">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="customFile" />
+          <label class="custom-file-label" for="customFile" id="img-meta"
+            >Choose file To Upload</label
+          >
+        </div>
+        <br />
+
+        <button
+          type="button"
+          class="mt-2"
+          id="upload-btn"
+          onclick="upload()"
+          disabled="true"
+        >
+          Upload
+        </button>
+        <button type="submit" class="mt-2" id="predict-btn" disabled="true">
+          Predict
+        </button>
+      </form>
+
+      <div class="mt-5">
+        <img
+          class="img-thumbnail"
+          alt="Thumbnail image"
+          id="thumb"
+          style="display: none;"
+        />
+      </div>
+
+      <div
+        class="spinner-border"
+        id="spinner-div"
+        style="margin: auto; display: none"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
+
+      <br />
+      <div id="result-div">
+        <!-- add some styling here-->
+        <label id="result-label"></label>
+      </div>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='main.js') }}"
+    ></script>
+  </body>
+</html>
